@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-  <title>Leiton Estrada: Personal site and portfolio</title>
+  <title>Leiton Estrada R: Personal site and portfolio</title>
 </svelte:head>
 <h1> Leiton Estrada</h1>
    
