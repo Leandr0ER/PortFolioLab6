@@ -10,6 +10,7 @@
     // return { value: count, label: year };
     // });
 
+    // Step 4.4
     let pieData;
 
     $: {
@@ -25,12 +26,37 @@
         });
     }
 
-    let query = "";
+    let query = "";  // Step 4.1
+
+    // Step 4.3
+    // $: filteredProjects = projects.filter(project => {
+    // let values = Object.values(project).join("\n").toLowerCase();
+    // return values.includes(query.toLowerCase());
+    // });
+
+    // Step 4.3
+    // $: filteredProjects = projects.filter(project => {
+    // if (query) {
+    //     return project.title.toLowerCase().includes(query.toLowerCase());
+    // }
+
+    // return true;
+    // });
 
     $: filteredProjects = projects.filter(project => {
     let values = Object.values(project).join("\n").toLowerCase();
     return values.includes(query.toLowerCase());
     });
+
+    // Step 4.2
+    // $: filteredProjects = projects.filter(project => {
+    // if (query) {
+    //     return project.title.includes(query);
+    // }
+
+    // return true;
+    // });
+
 
 //     let data = [
 //     { value: 1, label: "apples" },
@@ -41,6 +67,8 @@
 //     { value: 5, label: "cherries" }
 // ];
 
+
+
 </script>
 
 <svelte:head>
@@ -49,6 +77,7 @@
 
 <Pie data={pieData}/>   <!--Step 3.2--> <!--Step 3.1--> 
 
+<!-- Step 4.1 -->
 <input type="search" bind:value={query} aria-label="Search projects" placeholder="🔍 Search projects..." />
 
 <h1>{ projects.length } Projects</h1>
@@ -65,4 +94,12 @@
     {/each}
 </div>
 
+<div class="container">
+  <svg viewBox="-50 -50 100 100">
+      <!-- ... -->
+  </svg>
+  <ul class="legend">
+      <!-- ... -->
+  </ul>
+</div>
 

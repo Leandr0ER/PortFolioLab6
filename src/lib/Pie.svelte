@@ -33,23 +33,23 @@ let colors = d3.scaleOrdinal(d3.schemeTableau10);
 // let sliceGenerator = d3.pie();
 let sliceGenerator = d3.pie().value(d => d.value); // Step2.1
 
-let arcData = sliceGenerator(data);
-let arcs = arcData.map(d => arcGenerator(d));
+// let arcData = sliceGenerator(data);
+// let arcs = arcData.map(d => arcGenerator(d));
 
-// Define arcData and arcs outside the reactive block
+// Step 4.4
+let arcData;
+let arcs;
 
-// let arcData;
-// let arcs;
-
-//     $: {
-//         // Reactively calculate arcData and arcs the same way we did before with sliceGenerator and arcGenerator
-//         arcData = TODO: FILL IN
-//         arcs = TODO: FILL IN
-//     }
-
+$: {
+        // Reactively calculate arcData and arcs the same way we did before with sliceGenerator and arcGenerator
+        arcData = sliceGenerator(data); // TODO: FILL IN
+        arcs = arcData.map(d => arcGenerator(d)); // TODO: FILL IN
+    }
 
 
 </script>
+
+<div class="container">  <!--Step 2.4 -->
 
 <svg viewBox="-50 -50 100 100">
     <!-- <path d={arc} fill="red" /> -->
@@ -70,6 +70,9 @@ let arcs = arcData.map(d => arcGenerator(d));
         </li>
     {/each}
 </ul>
+
+</div>
+
 
 <style>
 svg {
